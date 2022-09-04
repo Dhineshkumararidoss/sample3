@@ -13,52 +13,52 @@ import org.testng.annotations.Test;
 public class Sample {
 	
 	
-	@BeforeSuite
+	@Test(priority=5)
 	private void m1() {
 		System.out.println("print one ");
 
 	}
-	@BeforeTest
+	@Test(priority=4)
 	private void m2() {
 		System.out.println("print two");
 
 	}
-	@BeforeClass
-	private void m3() {
-		System.out.println("print three");
-
-	}
-	@BeforeMethod
-	private void m4() {
-		System.out.println("before test");
-
-	}
-	@Test
+	@Test(priority=0)
 	private void m5() {
-		System.out.println("print 5");
+		System.out.println("A");
 
 	}
-	@Test
+	@Test(priority=0)
+	private void m4() {
+		System.out.println("B");
+
+	}
+	@Test(priority=0)
+	private void m3() {
+		System.out.println("C");
+
+	}
+	@Test(priority=-1)
 	private void m10() {
 		System.out.println("one more task");
 
 	}
-	@AfterMethod
+	@Test(priority=-5)
 	private void m6() {
 		System.out.println("after test");
 
 	}
-	@AfterClass
+	@Test
 	private void m7() {
 		System.out.println("print 7");
 
 	}
-	@AfterTest
+	@Test(priority=6,invocationCount=5)
 	private void m8() {
 		System.out.println("print 8");
 
 	}
-	@AfterSuite
+	@Test(enabled=false)
 	private void m9() {
 		System.out.println(" after test 9");
 
